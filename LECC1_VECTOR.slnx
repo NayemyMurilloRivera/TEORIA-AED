@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="LECC1_VECTOR/LECC1_VECTOR.vcxproj" Id="b0354d02-c27c-4f06-8741-915a790f2d34" />
+</Solution>
