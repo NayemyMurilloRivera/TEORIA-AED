@@ -9,7 +9,7 @@ public:
     void push_front(int num);
     void pop_back();
     void pop_front();
-    int operator [](int i);
+    int &operator [](int i);
     void impresion();
 
 
@@ -20,7 +20,7 @@ private:
 };
 
 
-int cvector::operator[](int i) {
+int &cvector::operator[](int i) {
     return *(arr+i);// arr[i]
 
 }
