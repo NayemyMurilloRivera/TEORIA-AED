@@ -5,6 +5,7 @@ class Cdeque {
 public:
     int& operator [](int i);
     Cdeque(int size_m, int size_a);
+    ~Cdeque();
     void pushback(int num);
     void expansion();
     void pushfront(int num);
@@ -22,6 +23,14 @@ private:
     
 
 };
+Cdeque::~Cdeque() {
+    for (int i = 0; i < size_map; i++) {
+        if (mapa[i] != nullptr) {
+            delete[] mapa[i];
+        }
+    }
+    delete[] mapa;
+}
 
 void Cdeque::pop_back() {
 
