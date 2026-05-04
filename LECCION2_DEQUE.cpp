@@ -81,11 +81,11 @@ Cdeque::Cdeque(int size_m, int size_a){
     }
 }
 int& Cdeque:: operator [](int i) {
-    int prueba = 0;
     if (i < 0 || i >= nelem) {
-        cout << "Una mrd tu codigo";
-        return prueba;
+        cout << "Indice fuera de rango";
+        exit(1);
     }
+
     int bloque = inicio_mapa + (inicio_pos + i)/ size_pos;
     int posicion = (inicio_pos + i) % size_pos;
     
