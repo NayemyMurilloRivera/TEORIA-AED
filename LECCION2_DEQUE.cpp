@@ -3,11 +3,6 @@
 using namespace std;
 class Cdeque {
 public:
-    /*
-    
-    void pop_front();
-    void pop_back();
-    */
     int& operator [](int i);
     Cdeque(int size_m, int size_a);
     void pushback(int num);
@@ -15,6 +10,7 @@ public:
     void pushfront(int num);
     void impresion();
     void pop_back();
+    void pop_front();
 
 private:
     int** mapa;
@@ -29,21 +25,45 @@ private:
 
 void Cdeque::pop_back() {
 
-    if (mapa[final_mapa]==nullptr) {
+    if (nelem==0) {
         cout << " Esta vacio , no hay nada que hacer";
         return;
     }
     else {
         if (final_pos == 0) {
             final_mapa--;
+            final_pos = size_pos -1; // sube a la segunda parte;
+
+
 
         }
         else {
             final_pos--;
         }
+        nelem--;
     }
+    cout << "POP BACK:";
 }
 
+
+void Cdeque::pop_front() {
+
+    if (nelem == 0) {
+        cout << " Esta vacio , no hay nada que hacer";
+        return;
+    }
+    else {
+        if (inicio_pos== size_pos-1) {
+            inicio_mapa++;
+            inicio_pos = 0;
+        }
+        else {
+            inicio_pos++;
+        }
+        nelem--;
+    }
+    cout << "POP FRONT:";
+}
 Cdeque::Cdeque(int size_m, int size_a){
 
     size_map = size_m;
@@ -61,9 +81,10 @@ Cdeque::Cdeque(int size_m, int size_a){
     }
 }
 int& Cdeque:: operator [](int i) {
+    int prueba = 0;
     if (i < 0 || i >= nelem) {
-        cout << "Indice fuera de rango";
-        exit(1);
+        cout << "Una mrd tu codigo";
+        return prueba;
     }
     int bloque = inicio_mapa + (inicio_pos + i)/ size_pos;
     int posicion = (inicio_pos + i) % size_pos;
@@ -126,15 +147,11 @@ void Cdeque::pushback(int num)
 
 void Cdeque::impresion()
 {
-    //super simple con operator
-    cout << "[";
     for (int i = 0; i < nelem; i++) {
-        cout << endl;
-        cout << "[" << operator[](i) << "," << endl;
+        cout << "[" << operator[](i) << "] ";
     }
     cout << endl;
-
-    cout << "]";
+    
 }
 
 
@@ -220,7 +237,15 @@ int main()
     dequesito.pushback(4);
     dequesito.pushfront(-5);
     dequesito.pushback(5);
+    dequesito.impresion();
+
     dequesito.pop_back();
+    dequesito.pop_back();
+   
+
+    dequesito.impresion();
+
+    dequesito.pop_front();
 
     dequesito.impresion();
 
