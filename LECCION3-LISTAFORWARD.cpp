@@ -1,4 +1,3 @@
-
 #include <iostream>
 using namespace std;
 class Cnodo {
@@ -31,8 +30,6 @@ private:
       
     
 };
-
-
 void fl::popback() {
     if (cabeza == nullptr) {
         cout << "No hay que borrar";
@@ -41,35 +38,25 @@ void fl::popback() {
     if (cabeza->next == nullptr) {
         delete cabeza;
         cabeza = nullptr;
+        return;
 
     }
     Cnodo* temporal=cabeza;
-    for (; temporal->next->next != nullptr; temporal = temporal->next);
+    for (; temporal->next != nullptr && temporal->next->next != nullptr; temporal = temporal->next);
     delete temporal->next;
     temporal->next = nullptr;
-
-
-
 }
 void fl::popfront() {
     if (cabeza == nullptr) {
         cout << "No hay que borrar";
         return;
     }
-    if (cabeza->next == nullptr) {
-        delete cabeza;
-        cabeza = nullptr;
-
-    }
+  
     Cnodo* temporal = cabeza;
     cabeza = cabeza->next;
     delete temporal;
 
-
-
 }
-
-
 
 fl::fl() {
     cabeza = nullptr;
