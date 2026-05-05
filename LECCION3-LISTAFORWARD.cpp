@@ -1,4 +1,38 @@
 
+#include <iostream>
+using namespace std;
+class Cnodo {
+public:
+    int value;
+    Cnodo * next;
+    Cnodo(int valor) {
+        value = valor;
+        next = nullptr;
+
+    }
+};
+
+class fl {
+public:
+    void pushback(int num);
+    fl();
+    int & operator [](int i) ;
+    void impresion();
+
+
+    void pushfront(int num);
+    void popback();
+    void popfront();
+private:
+    Cnodo * cabeza;
+    Cnodo* cola;
+
+
+      
+    
+};
+
+
 void fl::popback() {
     if (cabeza == nullptr) {
         cout << "No hay que borrar";
